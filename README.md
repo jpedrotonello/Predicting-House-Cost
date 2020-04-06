@@ -5,12 +5,13 @@ The objective is to test and compare regression methods to suggest the value of 
 https://www.kaggle.com/rubenssjr/brasilian-houses-to-rent#houses_to_rent_v2.csv
 
 
-I tested the following regression methods:
+I tested the following methods:
  - Multi linear Regression
  - Decision Tree Regression
  - Random Tree Forest Regression
  - Artificial Neural Network (ANN)
-
+ 
+ In this analyses I tested the Principal Component Analysis and Linear Discriminant Analysis methods for dimensionality reduction.
 
 The two methods that have given the best results considering their RMS error indicators are the ANN and random forest regression methods.
 
