@@ -28,7 +28,7 @@ X = np.array(ct.fit_transform(X), dtype=np.float)
 X = X[:, 1:]
 
 # Splitting the dataset into the Training set and Test set
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.002, random_state = 5)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.20, random_state = 5)
 
 # Feature Scaling
 from sklearn.preprocessing import StandardScaler
@@ -79,8 +79,9 @@ from sklearn.metrics import mean_squared_error
 from math import sqrt
 rmse = sqrt(mean_squared_error(y_test, y_pred))
 
-plt.plot(y_test, color = 'red', label = 'Real data')
-plt.plot(y_pred, color = 'blue', label = 'Predicted data')
+# Visualizing Values 
+plt.scatter(y_test, y_pred, s = 2.5, c = 'black')
+plt.plot([0, 20000], [0, 20000], linestyle = '--', c = 'gray')
 plt.title('Prediction by ANN Method (RMS error = %0.0f)' % rmse)
-plt.legend()
-plt.show()
+plt.ylabel('Predicted Value')
+plt.xlabel('Real Value')

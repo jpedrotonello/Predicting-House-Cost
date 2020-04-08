@@ -28,7 +28,7 @@ X = X[:, 1:]
 
 # Splitting the dataset into the Training set and Test set
 from sklearn.model_selection import train_test_split
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.002, random_state = 5)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.20, random_state = 5)
 
 """
 # Feature Scaling
@@ -67,9 +67,10 @@ for i in range(1, 100, 4):
     if rmse < best_rmse:
         best_rmse = rmse
         best_y_pred = y_pred
-        
-plt.plot(y_test, color = 'red', label = 'Real data')
-plt.plot(best_y_pred, color = 'blue', label = 'Predicted data')
-plt.title('Prediction by Random Forest Regression Method (RMS error = %0.0f)' % best_rmse)
-plt.legend()
-plt.show()
+
+# Visualizing Values 
+plt.scatter(y_test, y_pred, s = 2.5, c = 'black')
+plt.plot([0, 20000], [0, 20000], linestyle = '--', c='gray')
+plt.title('Prediction by Random Forest Regression Method (RMS error = %0.0f)' % rmse)
+plt.ylabel('Predicted Value')
+plt.xlabel('Real Value')
