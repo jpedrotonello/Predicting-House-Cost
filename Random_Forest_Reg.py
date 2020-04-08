@@ -50,23 +50,15 @@ lda = LDA(n_components = 8)
 X_train = lda.fit_transform(X_train, y_train)
 X_test = lda.transform(X_test)
 """
+# Fitting Random Forest Regression to the dataset
+from sklearn.ensemble import RandomForestRegressor
+regressor = RandomForestRegressor(n_estimators = 150, random_state = 0)
+regressor.fit(X_train, y_train)
+y_pred = regressor.predict(X_test)
 
 from sklearn.metrics import mean_squared_error
 from math import sqrt
-from sklearn.ensemble import RandomForestRegressor
-
-# Obtaining the best number of estimators
-best_rmse = 1e10
-for i in range(1, 100, 4):
-    # Fitting Random Forest Regression to the dataset
-    regressor = RandomForestRegressor(n_estimators = i, random_state = 0)
-    regressor.fit(X_train, y_train)
-    y_pred = regressor.predict(X_test)
-    rmse = sqrt(mean_squared_error(y_test, y_pred))
-    print('Loading ' + str(i) + '% RMSE = ' + str(rmse))
-    if rmse < best_rmse:
-        best_rmse = rmse
-        best_y_pred = y_pred
+rmse = sqrt(mean_squared_error(y_test, y_pred))
 
 # Visualizing Values 
 plt.scatter(y_test, y_pred, s = 2.5, c = 'black')

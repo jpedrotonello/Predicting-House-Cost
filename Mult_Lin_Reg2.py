@@ -59,6 +59,6 @@ rmse = sqrt(mean_squared_error(y_test, y_pred))
 # Visualizing Values 
 plt.scatter(y_test, y_pred, s = 2.5, c = 'black')
 plt.plot([0, 20000], [0, 20000], linestyle = '--', c = 'gray')
-plt.title('Prediction by Decision Tree Method (RMS error = %0.0f)' % rmse)
+plt.title('Prediction by Multi linear Regression Method (RMS error = %0.0f)' % rmse)
 plt.ylabel('Predicted Value')
 plt.xlabel('Real Value')
