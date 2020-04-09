@@ -17,7 +17,7 @@ The two methods that have given the best results considering their RMS error ind
 ![](Images/ANN.png)
 ![](Images/RFR.png)
 
-Analyzing the relationship of the data using the PCA method, it is concluded that the data that most influences the cost of renting is the fire insurance cost. Adding this data to the regression method can greatly improve the accuracy of the results. In this case, the Multi Linear Regression Method obtained the most accurate result. The image below illustrates the comparison of the real data with the predicted data.
+Analyzing the relationship of the data using the PCA method, it is concluded that the data that most influences the cost of renting is the fire insurance cost. Adding this data to the regression method can greatly improve the accuracy of the results. In this case, the Random Tree Forest Regression Method obtained the most accurate result. The image below illustrates the comparison of the real data with the predicted data.
 
 ![](Images/Fire%20Insurance.png)
 
