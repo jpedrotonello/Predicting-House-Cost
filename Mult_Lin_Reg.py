@@ -29,14 +29,14 @@ X = X[:, 1:]
 # Splitting the dataset into the Training set and Test set
 from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.20, random_state = 5)
-
+"""
 # Applying PCA
 from sklearn.decomposition import PCA
 pca = PCA(n_components = 8)
 X_train = pca.fit_transform(X_train)
 X_test = pca.transform(X_test)
 explained_variance = pca.explained_variance_ratio_
-"""
+
 # Applying LDA
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis as LDA
 lda = LDA(n_components = 8)
@@ -49,6 +49,7 @@ regressor = LinearRegression()
 regressor.fit(X_train, y_train)
 y_pred = regressor.predict(X_test)
 
+# Calculating Root Mean Squared Error
 from sklearn.metrics import mean_squared_error
 from math import sqrt
 rmse = sqrt(mean_squared_error(y_test, y_pred))

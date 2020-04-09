@@ -6,7 +6,7 @@ import pandas as pd
 
 # Importing the dataset
 dataset = pd.read_csv('houses_to_rent_v2.csv')
-X = dataset.iloc[:, [True, True, True, True, True, True, True, True, True, False, True, False, False]].values
+X = dataset.iloc[:, [True, True, True, True, True, True, True, True, True, False, True, True, False]].values
 #X = dataset.iloc[:, -2:-1].values #Considering only the fire insurance cost
 y = dataset.iloc[:, -4].values
 
