@@ -61,8 +61,12 @@ from math import sqrt
 rmse = sqrt(mean_squared_error(y_test, y_pred))
 
 # Visualizing Values 
-plt.scatter(y_test, y_pred, s = 2.5, c = 'black')
-plt.plot([0, 20000], [0, 20000], linestyle = '--', c='gray')
+y_test_filt = y_test[y_test < 17000]
+y_pred_filt = y_pred[y_test < 17000]
+y_test_filt = y_test_filt[y_pred_filt < 17000]
+y_pred_filt = y_pred_filt[y_pred_filt < 17000]
+plt.scatter(y_test_filt, y_pred_filt, s = 1, c = 'black')
+plt.plot([0, 15000], [0, 15000], linestyle = '--', c='gray')
 plt.title('Prediction by Random Forest Regression Method (RMS error = %0.0f)' % rmse)
 plt.ylabel('Predicted Value')
 plt.xlabel('Real Value')
