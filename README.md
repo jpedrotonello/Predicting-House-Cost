@@ -3,6 +3,22 @@ These are algorithms that I created to practice my machine learning and deep lea
 The objective is to test and compare regression methods to suggest the value of rental properties in five Brazilian cities based on the following database:
 https://www.kaggle.com/rubenssjr/brasilian-houses-to-rent#houses_to_rent_v2.csv
 
+Before creating a predictive machine, I performed an analysis of the data and I removed the outliers:
+
+![](Analysis/Visualization_outliers.png)
+
+Then, I remove the outliers from those variables:
+
+![](Analysis/area.png)
+![](Analysis/bathroom.png)
+![](Analysis/floor.png)
+![](Analysis/parking_spaces.png)
+![](Analysis/rooms.png)
+
+This is the Scatterplot Matrix:
+![](Analysis/Correlationships.png)
+
+It is possible to notice that there is a correlation between some variables, but all of them present very dispersed values.
 
 I tested the following methods:
  - Multi linear Regression
