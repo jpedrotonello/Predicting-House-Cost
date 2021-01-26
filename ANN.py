@@ -7,12 +7,29 @@ import pandas as pd
 
 # Importing the dataset
 dataset = pd.read_csv('houses_to_rent_v2.csv')
+
+# If floor = "-", we consider as if floor = 0
+dataset['floor'] = dataset['floor'].replace('-',0)
+dataset['floor'] = pd.to_numeric(dataset['floor']) # convert everything to float values
+
+# Removing outliers
+def remove_outlier(df_in, col_name):
+    q1 = df_in[col_name].quantile(0.25)
+    q3 = df_in[col_name].quantile(0.75)
+    iqr = q3-q1 #Interquartile range
+    fence_low  = q1-1.5*iqr
+    fence_high = q3+1.5*iqr
+    df_out = df_in.loc[(df_in[col_name] > fence_low) & (df_in[col_name] < fence_high)]
+    return df_out
+
+dataset= remove_outlier(dataset, 'area')
+dataset= remove_outlier(dataset, 'rooms')
+dataset= remove_outlier(dataset, 'bathroom')
+dataset= remove_outlier(dataset, 'parking spaces')
+dataset= remove_outlier(dataset, 'floor')
+
 X = dataset.iloc[:, [True, True, True, True, True, True, True, True, True, False, True, False, False]].values
 y = dataset.iloc[:, -4].values
-
-for i in range(0, len(X)):
-    if X[i][5] == '-':
-        X[i][5] = 0
 
 # Encoding Categorical Data
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
