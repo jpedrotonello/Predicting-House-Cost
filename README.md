@@ -7,7 +7,7 @@ Before creating a predictive machine, I performed an analysis of the data and I 
 
 ![](Analysis/Visualization_outliers.png)
 
-Then, I remove the outliers from those variables:
+those are the graphs after I removed the outliers:
 
 ![](Analysis/area.png)
 ![](Analysis/bathroom.png)
